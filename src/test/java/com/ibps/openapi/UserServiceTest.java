@@ -25,22 +25,22 @@ public class UserServiceTest extends BaseTest {
         CreateUserRequest request = new CreateUserRequest();
         request.setUser(user);
 
-        System.out.println(getJsonFromObject(request));
+       System.out.println(getJsonFromObject(request));
 
-//        with()
-//                .body(request)
-//                .when()
-//                .post(resource.getUserApiLocation())
-//                .then()
-//                .statusCode(HttpStatus.OK.value())
-//                .body("userId", equalTo(user.getUserId()))
-//                .body("email", equalTo(user.getEmail()))
-//                .body("username", equalTo(user.getUsername()))
-//                .body("firstName", equalTo(user.getFirstName()))
-//                .body("lastName", equalTo(user.getLastName()))
-//                .body("locale", equalTo(user.getLocale()))
-//                .body("phones", Matchers.hasSize(2))
-//                .body("phones[0].phoneNo", equalTo(user.getPhones().get(0).getPhoneNo()));
+        with()
+                .body(request)
+                .when()
+                .post(resource.getUserApiLocation())
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .body("userId", equalTo(user.getUserId()))
+                .body("email", equalTo(user.getEmail()))
+                .body("username", equalTo(user.getUsername()))
+                .body("firstName", equalTo(user.getFirstName()))
+                .body("lastName", equalTo(user.getLastName()))
+                .body("locale", equalTo(user.getLocale()))
+                .body("phones", Matchers.hasSize(2))
+                .body("phones[0].phoneNo", equalTo(user.getPhones().get(0).getPhoneNo()));
 
 
     }
@@ -65,6 +65,18 @@ public class UserServiceTest extends BaseTest {
                 .body("phones[0].phoneNo", equalTo(user.getPhones().get(0).getPhoneNo()));
 
 
+    }
+
+    @Test
+    /*
+     *
+     */
+    public void testDeleteUser_happy_path() throws Exception {
+        with()
+                .when()
+                .delete(resource.getUserApiLocation("john1" ))
+                .then()
+                .statusCode(HttpStatus.OK.value());
     }
     @Test
     /*
