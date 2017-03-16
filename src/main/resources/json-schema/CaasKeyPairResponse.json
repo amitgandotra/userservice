@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "CaaS RSA Key Pair and CSR Response",
+    "type": "object",
+    "properties": {
+        "encryptedPrivateKey": {
+            "type": "string"
+        },
+        "csr": {
+            "type": "string",
+            "media": {
+                "type": "application/x-pem-file"
+            }
+        },
+        "requestId": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "encryptedPrivateKey",
+        "csr",
+        "requestId"
+    ]
+}

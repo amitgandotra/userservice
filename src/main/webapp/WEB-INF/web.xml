@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         version="3.0">
+
+    <session-config>
+        <session-timeout>1</session-timeout>
+        <cookie-config>
+            <max-age>0</max-age>
+        </cookie-config>
+    </session-config>
+</web-app>

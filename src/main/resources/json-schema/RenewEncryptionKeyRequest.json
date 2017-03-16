@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "Renew Encryption Key Request",
+  "description": "Renew encryption key request",
+  "type": "object",
+  "properties": {
+    "csr": {
+      "type": "string",
+      "media": {
+        "type": "application/x-pem-file"
+      }
+    },
+    "applicationId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "csr"
+  ]
+}

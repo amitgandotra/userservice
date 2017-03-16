@@ -1,0 +1,212 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: IBPS User Service
+  description: User Service
+  termsOfService: ""
+  contact:
+    name: IBPS
+    url: "http://ibps.com"
+  license:
+    name: MIT
+    url: "http://opensource.org/licenses/MIT"
+
+tags:
+  - name: UserService
+    description: Services for Users
+
+host: usersvcs:8080
+basePath: /userservice
+
+schemes:
+  - http
+  - https
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /v1/users/{userId}:
+    get:
+      operationId: getUser
+      tags:
+        - UserService
+      summary: Get a User
+      parameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/User'
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/ErrorMessage'
+
+
+
+    delete:
+      operationId: deleteUser
+      tags:
+        - UserService
+      parameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+      responses:
+        204:
+          description: Success
+        default:
+          description: Error response
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+
+  /v1/users:
+    get:
+      operationId: getUsers
+      tags:
+        - UserService
+      summary: Get all Users
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/GetUsersResponse'
+        default:
+          description: Error response
+          schema:
+            $ref: '#/definitions/ErrorMessage'
+    post:
+      operationId: createUser
+      tags:
+        - UserService
+      summary: Create the User
+      parameters:
+        - name: Request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateUserRequest'
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error response
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+
+    put:
+      operationId: updateUser
+      tags:
+        - UserService
+      summary: Updates the User
+      parameters:
+        - name: Request
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateUserRequest'
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/User"
+        default:
+          description: Error response
+          schema:
+            $ref: "#/definitions/ErrorMessage"
+
+
+definitions:
+  UpdateUserRequest:
+      type: object
+      description: Update User
+      properties:
+        user:
+          type: object
+          $ref: '#/definitions/User'
+          description: User
+
+  GetUsersResponse:
+        type: object
+        description: Get Users Response
+        properties:
+          users:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+            description: All User Info
+
+  CreateUserRequest:
+      type: object
+      description: Create User
+      properties:
+        user:
+          type: object
+          $ref: '#/definitions/User'
+          description: User
+
+  User:
+      type: object
+      description: Representation of a user
+      required:
+        - userId
+        - email
+        - username
+      properties:
+        userId:
+          type: string
+          description: Unique identifier for the user
+        email:
+          type: string
+          description: User e-mail address
+        username:
+          type: string
+          description: 'Username, e.g.: john_smith'
+        firstName:
+          type: string
+          description: 'Firstname, e.g.: John'
+        lastName:
+          type: string
+          description: 'Lastname, e.g.: Smith'
+        locale:
+          type: string
+          description: 'User locale, e.g.: en_US'
+        phones:
+          type: array
+          items:
+            $ref: '#/definitions/UserPhone'
+
+  UserPhone:
+      type: object
+      description: Representation of a User Phone
+      required:
+          - phoneType
+          - phoneNo
+      properties:
+        phoneType:
+          type: string
+          description: User Phone Type.'H' - Home Phone,'W' - Work Phone, 'M' - Mobile Phone
+        phoneNo:
+          type: string
+          description: Phone number
+
+  ErrorMessage:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

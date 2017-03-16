@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "MQmessage",
+  "description": "MQ inbound (private) decryption key change notification message",
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "description": "Identifier for the application to which the key is being added.",
+      "type": "string"
+    },
+    "encryptedPrivateKey": {
+      "description": "Base64 encoded encrypted private key",
+      "type": "string"
+    },
+    "publicKeyFingerprint": {
+      "description": "Hex encoded SHA256 hash of the public key.",
+      "type": "string"
+    },
+    "currentPublicKeyFingerprint": {
+      "description": "Hex encoded SHA256 hash of the currently active public key.",
+      "type": "string"
+    },
+    "operation": {
+      "description": "Operation being performed on the encryption certificate.",
+      "type": "string",
+      "enum": [ "associate", "revoke", "replace" ]
+    },
+    "serviceCategoryName": {
+      "description": "Service name of the service provider (serv_cat.serv_cat_nam).",
+      "type": "string"
+    },
+    "userName": {
+      "description": "Username of logged in developer zone user that performed the key operation.",
+      "type": "string"
+    },
+    "certExpiryDate": {
+      "description": "Expiry date of the signed public key cert. Encoded as ISO8601, for example '2020-08-27T12:00:00Z'",
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "clientId",
+    "publicKeyFingerprint",
+    "operation",
+    "serviceCategoryName",
+    "userName",
+    "certExpiryDate"
+  ]
+}

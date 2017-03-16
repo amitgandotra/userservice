@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "CaaS Sign Key Response",
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string"
+    },
+    "serialNumber": {
+      "type": "string"
+    },
+    "certificate": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate"
+  ]
+}

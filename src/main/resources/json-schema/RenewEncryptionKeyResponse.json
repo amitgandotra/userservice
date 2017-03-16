@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "Renew Key Response",
+  "description": "Renew encryption key response",
+  "type": "object",
+  "properties": {
+    "keyId" : {
+      "type": "string"
+    }
+  },
+  "required": [
+    "keyId"
+  ]
+}

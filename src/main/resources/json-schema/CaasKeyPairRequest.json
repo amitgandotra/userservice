@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "CaaS Generate RSA Key Pair and CSR Request",
+    "type": "object",
+    "properties": {
+        "alias": {
+            "type": "string"
+        },
+        "modulusBits": {
+            "type": "string"
+        },
+
+            "subject": {
+                "type": "object",
+                "properties": {
+                    "commonName": {
+                        "type": "string"
+                    },
+                    "organizationName": {
+                        "type": "string"
+                    },
+                    "organizationalUnitName": {
+                        "type": "string"
+                    },
+                    "localityName": {
+                        "type": "string"
+                    },
+                    "stateOrProvinceName": {
+                        "type": "string"
+                    },
+                    "countryName": {
+                        "type": "string"
+                    }
+                },
+                "required": ["commonName"]
+
+            }
+
+    },
+    "required": [
+        "alias"
+    ]
+}

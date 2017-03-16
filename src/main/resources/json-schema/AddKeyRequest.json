@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "Add Key Request",
+  "description": "Add encryption key request",
+  "type": "object",
+  "properties": {
+    "csr": {
+      "type": "string",
+      "media": {
+        "type": "application/x-pem-file"
+      }
+    },
+    "applicationId": {
+      "type": "string"
+    },
+    "serviceCategoryName": {
+      "type": "string"
+    },
+    "keyAlias": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "serviceCategoryName",
+    "applicationId"
+  ]
+}

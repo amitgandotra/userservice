@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "CaaS Error",
+  "type": "object",
+  "properties": {
+  	"statusCode": {
+      "type": "integer"
+    },
+    "error": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "requestId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "statusCode",
+    "error",
+    "requestId"
+  ]
+}

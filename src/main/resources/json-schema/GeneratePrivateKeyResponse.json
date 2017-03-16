@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "Encryption Key Response",
+    "description": "Encryption key response",
+    "type": "object",
+    "properties": {
+        "certificate" : {
+            "type": "string"
+        }
+    },
+    "required": [
+        "certificate"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "CaaS Revoke Key Request",
+  "type": "object",
+  "properties": {
+    "certificate" : {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate"
+  ]
+}

@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Spring Boot Actuator Page</title>
+</head>
+<body>
+<a href="#" onclick="showResult('mappings')">mappings</a>
+<br />
+<a href="#" onclick="showResult('health')">health</a>
+<br />
+<a href="#" onclick="showResult('trace')">trace</a>
+<br />
+<a href="#" onclick="showResult('dump')">dump</a>
+<br />
+<a href="#" onclick="showResult('env')">env</a>
+<br />
+<a href="#" onclick="showResult('autoconfig')">autoconfig</a>
+<br />
+<a href="#" onclick="showResult('beans')">beans</a>
+<br />
+<a href="#" onclick="showResult('info')">info</a>
+<br />
+<!-- <a href="#" onclick="alert('Not Supported');">shutdown</a> -->
+<br />
+
+<script>
+function showResult(str) {
+
+    if (str.length == 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            	var json = JSON.parse(xmlhttp.responseText);
+            	var result = JSON.stringify(json, null, 2);
+            	document.getElementById("txtHint").innerHTML = result;
+            }
+        }
+        var method = "GET";
+        xmlhttp.open(method, "/hub/" + str, true);
+        xmlhttp.setRequestHeader("Accept","application/json");
+        xmlhttp.send();
+    }
+}
+
+</script>
+<pre><span id="txtHint" ></span></pre>
+</body>
+</html>

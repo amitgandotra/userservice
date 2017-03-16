@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "Add Key Response",
+  "description": "Add encryption key response",
+  "type": "object",
+  "properties": {
+    "keyId" : {
+      "type": "string"
+    }
+  },
+  "required": [
+    "keyId"
+  ]
+}

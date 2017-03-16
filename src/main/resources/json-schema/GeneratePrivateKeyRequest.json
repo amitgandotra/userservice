@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "Encryption Key Request",
+    "description": " Encryption key request",
+    "type": "object",
+    "properties": {
+        "applicationId": {
+            "type": "string"
+        },
+        "serviceCategoryName": {
+            "type": "string"
+        },
+        "keyAlias": {
+            "type": "string"
+        }
+
+    },
+    "required": [
+
+        "serviceCategoryName",
+        "applicationId",
+        "keyAlias"
+    ]
+}
