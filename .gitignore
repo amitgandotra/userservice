@@ -12,3 +12,5 @@ buildNumber.properties
 *.iml
 bin/
 out/
+.DS_Store
+.DS_Store/**
