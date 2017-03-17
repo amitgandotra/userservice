@@ -74,7 +74,7 @@ public class UserServiceTest extends BaseTest {
     public void testDeleteUser_happy_path() throws Exception {
         with()
                 .when()
-                .delete(resource.getUserApiLocation("john1" ))
+                .delete(resource.getUserApiLocation("amit1" ))
                 .then()
                 .statusCode(HttpStatus.OK.value());
     }

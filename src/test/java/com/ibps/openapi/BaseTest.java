@@ -54,8 +54,8 @@ public class BaseTest {
     public User createUser(String userId, String username) {
         User user = new User();
         user.setUserId(userId);
-      //  user.setUsername(username);
-      //  user.setEmail(userId + "@ibps.com");
+        user.setUsername(username);
+        user.setEmail(userId + "@ibps.com");
         user.setFirstName(username);
         user.setLastName(username);
         user.setLocale("en_US");
