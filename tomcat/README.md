@@ -6,7 +6,7 @@ docker rmi -f $(docker images -a -q)
 docker build -t "mytomcat:latest" .
 
 ##Run Docker
-docker run --name mytomcat1 -it --rm -p 8888:8080 -e \"SPRING_PROFILES_ACTIVE=container\" mytomcat:latest
+docker run --name mytomcat1 -it --rm -p 8888:8080 -e SPRING_PROFILES_ACTIVE=container mytomcat:latest
 
 ## Tomcat unix console
 
