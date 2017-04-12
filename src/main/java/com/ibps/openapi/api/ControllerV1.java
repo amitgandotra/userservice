@@ -12,6 +12,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class ControllerV1 implements V1Api {
     private static final Log log = LogFactory.getLog(ControllerV1.class);
@@ -20,19 +22,19 @@ public class ControllerV1 implements V1Api {
 
     @Override
     @RequestMapping(value = "/v1/users", method = RequestMethod.POST)
-    public User createUser(@RequestBody CreateUserRequest request) {return userService.createUser(request.getUser());}
+    public User createUser(@Valid @RequestBody CreateUserRequest request) {return userService.createUser(request.getUser());}
 
     @Override
     @RequestMapping(value = "/v1/users/{userId}", method = RequestMethod.DELETE)
-    public void deleteUser(@PathVariable("userId") String userId) {userService.deleteUser(userId);}
+    public void deleteUser(@PathVariable("userId") @Valid String userId) {userService.deleteUser(userId);}
 
     @Override
     @RequestMapping(value = "/v1/users/{userId}", method = RequestMethod.GET)
-    public User getUser(@PathVariable("userId") String userId) {return userService.getUser(userId);}
+    public User getUser(@PathVariable("userId") @Valid String userId) {return userService.getUser(userId);}
 
     @Override
     @RequestMapping(value = "/v1/users", method = RequestMethod.PUT)
-    public User updateUser(@RequestBody UpdateUserRequest request) { return userService.updateUser(request.getUser());}
+    public User updateUser(@RequestBody @Valid UpdateUserRequest request) { return userService.updateUser(request.getUser());}
 
     @Override
     @RequestMapping(value = "/v1/users", method = RequestMethod.GET)

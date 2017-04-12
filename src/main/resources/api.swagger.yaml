@@ -149,6 +149,8 @@ definitions:
   CreateUserRequest:
       type: object
       description: Create User
+      required:
+          - user
       properties:
         user:
           type: object

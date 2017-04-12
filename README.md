@@ -1,5 +1,5 @@
 ## Commands
-
+java -Dspring.profiles.active=docker -jar user-service-executable.jar 
 
 docker build -t "ibps/usersvcs:latest" .
 
