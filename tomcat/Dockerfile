@@ -1,4 +1,4 @@
-FROM tomcat:8.5.13-jre8
+FROM tomcat:latest
 MAINTAINER Amit Gandotra(amitgandotra@hotmail.com)
 
 #RUN apk update
