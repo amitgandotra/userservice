@@ -110,7 +110,7 @@
     </dependencies>
 
     <build>
-        <finalName>user-service</finalName>
+        <finalName>userservice</finalName>
 
         <plugins>
 
