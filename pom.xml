@@ -179,7 +179,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+    <!--
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -195,7 +195,7 @@
                         <goals>
                             <goal>validateRevision</goal>
                         </goals>
-                        <!-- *NOTE*: The default phase of validateRevision is verify, but in case you want to change it, you can do so by adding the phase here -->
+
                         <phase>package</phase>
                     </execution>
                 </executions>
@@ -215,7 +215,7 @@
                     <skip>false</skip>
                     <runOnlyOnce>false</runOnlyOnce>
                     <excludeProperties>
-                        <!-- <excludeProperty>git.user.*</excludeProperty> -->
+
                     </excludeProperties>
                     <useNativeGit>false</useNativeGit>
                     <abbrevLength>7</abbrevLength>
@@ -229,39 +229,17 @@
                         <forceLongFormat>false</forceLongFormat>
                     </gitDescribe>
 
-                    <!--<validationProperties>-->
-                    <!--<validationProperty>-->
-                    <!--<name>validating project version</name>-->
-                    <!--<value>${project.version}</value>-->
-                    <!--<shouldMatchTo><![CDATA[^.*(?<!-SNAPSHOT)$]]></shouldMatchTo>-->
-                    <!--</validationProperty>-->
-                    <!--&lt;!&ndash; the next validationProperty you would like to validate &ndash;&gt;-->
-                    <!--</validationProperties>-->
 
                     <validationProperties>
-                        <!--<validationProperty>-->
-                        <!--<name>validating project version</name>-->
-                        <!--<value>${project.version}</value>-->
-                        <!--&lt;!&ndash; <shouldMatchTo>^[0-9\.]*$</shouldMatchTo> &ndash;&gt;-->
-                        <!--<shouldMatchTo><![CDATA[^.*(?<!-SNAPSHOT)$]]></shouldMatchTo>-->
-                        <!--</validationProperty>-->
-                        <!--<validationProperty>-->
-                        <!--<name>validating git dirty</name>-->
-                        <!--<value>${git.dirty}</value>-->
-                        <!--<shouldMatchTo>false</shouldMatchTo>-->
-                        <!--</validationProperty>-->
+
                     </validationProperties>
-                    <!-- @since 2.2.2 -->
-                    <!--
-                        true by default, controls whether the validation will fail if *at least one* of the validationProperties does not match with it's expected values.
-                        If you don't care about this, you may want to set this value to false (this makes the configuration of validationProperties useless).
-                        *Note*: This configuration will only be taken into account when the additional goal `validateRevision` is configured inside an execution and at least one validationProperty is defined.
-                    -->
+
                     <validationShouldFailIfNoMatch>false</validationShouldFailIfNoMatch>
                 </configuration>
 
 
             </plugin>
+            -->
         </plugins>
     </build>
 
