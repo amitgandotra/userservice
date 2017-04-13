@@ -16,12 +16,12 @@ import javax.net.ssl.SSLSocketFactory;
 public class ContainerConfig {
     private static Log log = LogFactory.getLog(ContainerConfig.class);
 
-    @Bean
-    public HttpClient httpClient(SSLSocketFactory sslSocketFactory) {
-        SSLConnectionSocketFactory connectionFactory = new SSLConnectionSocketFactory(sslSocketFactory, new NoopHostnameVerifier());
-
-        return ApplicationConfig.defaultHttpClientBuilder()
-                .setSSLSocketFactory(connectionFactory)
-                .build();
-    }
+//    @Bean
+//    public HttpClient httpClient(SSLSocketFactory sslSocketFactory) {
+//        SSLConnectionSocketFactory connectionFactory = new SSLConnectionSocketFactory(sslSocketFactory, new NoopHostnameVerifier());
+//
+//        return ApplicationConfig.defaultHttpClientBuilder()
+//                .setSSLSocketFactory(connectionFactory)
+//                .build();
+//    }
 }

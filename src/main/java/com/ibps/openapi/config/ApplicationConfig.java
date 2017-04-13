@@ -40,7 +40,7 @@ public class ApplicationConfig {
     }
 
     @Bean
-    @Profile("!container")
+   // @Profile("!container")
     public HttpClient httpClient() {
         return defaultHttpClientBuilder().build();
     }
