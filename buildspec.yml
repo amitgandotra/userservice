@@ -1,0 +1,11 @@
+version: 0.1
+
+phases:
+  post_build:
+    commands:
+      - mvn clean package
+      - mv target/userservice.war userservice.war
+artifacts:
+  files:
+    - userservice.war
+    - .ebextensions/**/*
