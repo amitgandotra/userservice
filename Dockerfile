@@ -6,7 +6,7 @@ RUN chmod +x /wait-for-it.sh
 
 RUN mkdir /code
 # Make sure to build project with -Pexecutable
-ADD ./target/user-service-executable.jar /code
+ADD ./target/userservice-executable.jar /code
 
 WORKDIR /code
 
