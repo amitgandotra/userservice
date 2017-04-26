@@ -3,10 +3,12 @@ package com.ibps.openapi;
 import com.ibps.api.usersvcs.model.CreateUserRequest;
 import com.ibps.api.usersvcs.model.User;
 import com.ibps.openapi.exception.Errors;
+import com.ibps.openapi.repositories.jpa.UserRepository;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -17,18 +19,14 @@ import static org.hamcrest.core.Is.is;
 @RunWith(SpringRunner.class)
 public class UserServiceTest extends BaseTest {
 
-    @Before
-    public void setupData()
-    {
-
-    }
+    @Autowired UserRepository userRepository;
 
     @Test
     /*
      *
      */
     public void testCreateUser_happy_path() throws Exception {
-        User user = createUser("create-user-1", "create-user-1");
+        User user = createUser( "create-user-1");
         CreateUserRequest request = new CreateUserRequest();
         request.setUser(user);
 
@@ -40,7 +38,6 @@ public class UserServiceTest extends BaseTest {
                 .post(resource.getUserApiLocation())
                 .then()
                 .statusCode(HttpStatus.OK.value())
-                .body("userId", equalTo(user.getUserId()))
                 .body("email", equalTo(user.getEmail()))
                 .body("username", equalTo(user.getUsername()))
                 .body("firstName", equalTo(user.getFirstName()))
@@ -56,20 +53,21 @@ public class UserServiceTest extends BaseTest {
      *
      */
     public void testGetUser_happy_path() throws Exception {
-        User user=createUser("john1","John Smith");
+        com.ibps.openapi.domain.User user=userRepository.findByUsername("abc");
+        //User user=createUser("John Smith");
         with()
                 .when()
-                .get(resource.getUserApiLocation("john1") )
+                .get(resource.getUserApiLocation(user.getId()) )
                 .then()
                 .statusCode(HttpStatus.OK.value())
-                .body("userId", equalTo(user.getUserId()))
+               // .body("userId", equalTo(user.getUserId()))
                 .body("email", equalTo(user.getEmail()))
                 .body("username", equalTo(user.getUsername()))
                 .body("firstName", equalTo(user.getFirstName()))
                 .body("lastName", equalTo(user.getLastName()))
-                .body("locale", equalTo(user.getLocale()))
-                .body("phones", Matchers.hasSize(2))
-                .body("phones[0].phoneNo", equalTo(user.getPhones().get(0).getPhoneNo()));
+                .body("locale", equalTo(user.getLocale()));
+              //  .body("phones", Matchers.hasSize(2))
+               // .body("phones[0].phoneNo", equalTo(user.getPhones().get(0).getPhoneNo()));
 
 
     }
@@ -90,15 +88,15 @@ public class UserServiceTest extends BaseTest {
      *
      */
     public void testGetUsers_happy_path() throws Exception {
-        User user=createUser("john1","John Smith");
+       // User user=createUser("john1","John Smith");
         with()
                 .when()
                 .get(resource.getUserApiLocation() )
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .body("users.findall.size()", is(3))
-                .body("users.find { it.userId == 'john1' }.username", Matchers.equalTo("John Smith"))
-                .body("users.findAll{it.userId == \"john1\"}.username", Matchers.hasItem("John Smith"));
+                .body("users.find { it.username == 'abc' }.email", Matchers.equalTo("abc@example.com"))
+                .body("users.findAll{it.username == \"def\"}.email", Matchers.hasItem("def@example.com"));
                 //.body("users.findAll{it.userId == \"john1\"}.username", Matchers.empty());
 
 
@@ -109,7 +107,7 @@ public class UserServiceTest extends BaseTest {
      *
      */
     public void testCreateUser_user_already_exist() throws Exception {
-        User user = createUser("john1", "john1");
+        User user = createUser( "john1");
         CreateUserRequest request = new CreateUserRequest();
         request.setUser(user);
 
