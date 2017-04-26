@@ -4,6 +4,7 @@ import com.ibps.api.usersvcs.model.CreateUserRequest;
 import com.ibps.api.usersvcs.model.User;
 import com.ibps.openapi.exception.Errors;
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,12 @@ import static org.hamcrest.core.Is.is;
 
 @RunWith(SpringRunner.class)
 public class UserServiceTest extends BaseTest {
+
+    @Before
+    public void setupData()
+    {
+
+    }
 
     @Test
     /*

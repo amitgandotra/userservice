@@ -1,0 +1,28 @@
+[{
+    "_class": "com.ibps.openapi.domain.User",
+    "id": "0000000001",
+    "email": "abc@example.com",
+    "username": "abc",
+    "firstName": "John",
+    "lastName": "Doe",
+    "locale": "en_US"
+  },
+  {
+    "_class": "com.ibps.openapi.domain.User",
+    "id": "0000000002",
+    "email": "def@example.com",
+    "username": "def",
+    "firstName": "James",
+    "lastName": "Smith",
+    "locale": "en_US"
+  },
+  {
+    "_class": "com.ibps.openapi.domain.User",
+    "id": "0000000003",
+    "email": "nnn@example.com",
+    "username": "nnn",
+    "firstName": "Nancy",
+    "lastName": "Smith",
+    "locale": "en_US"
+  }
+]
