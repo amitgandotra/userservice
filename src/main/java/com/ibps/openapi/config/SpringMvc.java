@@ -26,11 +26,11 @@ public class SpringMvc extends WebMvcConfigurerAdapter {
         registry.addInterceptor(new LogTagger());
     }
 
-    @Override
-    public Validator getValidator() {
-        LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
-        factory.setValidationMessageSource(messageSource);
-        return factory;
-    }
+//    @Override
+//    public Validator getValidator() {
+//        LocalValidatorFactoryBean factory = new LocalValidatorFactoryBean();
+//        factory.setValidationMessageSource(messageSource);
+//        return factory;
+//    }
 
 }

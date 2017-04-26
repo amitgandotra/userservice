@@ -1,0 +1,22 @@
+package com.ibps.openapi.domain;
+
+/**
+ * Created by amit on 4/25/17.
+ */
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.id.IdentifierGenerator;
+
+import java.io.Serializable;
+import java.util.UUID;
+
+public class RandomIdGenerator implements IdentifierGenerator {
+    @Override
+    public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
+        return generateId();
+    }
+
+    public String generateId() {
+        return UUID.randomUUID().toString();
+    }
+}

@@ -20,6 +20,9 @@ curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/userser
 
 ## endpoints
 
+#### H2 Database Console
+http://localhost:8080/userservice/console
+
 #### Actuator End points
 http://localhost:8080/userservice/info
 
