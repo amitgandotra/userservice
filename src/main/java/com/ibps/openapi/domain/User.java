@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 /**
  * Created by amit on 4/25/17.
  */
+@javax.persistence.Table(name = "USER")
 @Entity
 public class User {
     @Id
@@ -73,5 +74,17 @@ public class User {
 
     public void setLocale(String locale) {
         this.locale = locale;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", locale='" + locale + '\'' +
+                '}';
     }
 }

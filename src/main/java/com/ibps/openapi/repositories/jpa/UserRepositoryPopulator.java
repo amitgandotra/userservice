@@ -42,11 +42,11 @@ public class UserRepositoryPopulator implements ApplicationListener<ContextRefre
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
         if (event.getApplicationContext().equals(applicationContext)) {
-            CrudRepository albumRepository =
+            CrudRepository userRepository =
                     BeanFactoryUtils.beanOfTypeIncludingAncestors(applicationContext, CrudRepository.class);
 
-            if (albumRepository != null && albumRepository.count() == 0) {
-                populate(albumRepository);
+            if (userRepository != null && userRepository.count() == 0) {
+                populate(userRepository);
             }
         }
 
