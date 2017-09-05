@@ -26,14 +26,14 @@ public class CacheConfig {
     public CacheManager cacheManager() {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
         cacheManager.setCaches(Arrays.asList(
-                new ConcurrentMapCache("serviceCategoryParamCache")));
+                new ConcurrentMapCache("userParamCache")));
 
         return cacheManager;
     }
 
-    @CacheEvict(allEntries = true, value = {"serviceCategoryParamCache"})
+    @CacheEvict(allEntries = true, value = {"userParamCache"})
     @Scheduled(fixedDelay = 60 * 60 * 1000)
     public void reportCacheEvict() {
-        log.info("Flush serviceCategoryParamCache " + new Date());
+        log.info("Flush userParamCache " + new Date());
     }
 }

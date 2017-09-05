@@ -21,7 +21,7 @@ public class UserDao {
     private static final Log log = LogFactory.getLog(UserDao.class);
 
     @Transactional(readOnly = true)
-    @Cacheable("serviceCategoryParamCache")
+    @Cacheable("userParamCache")
     public User findUserByName(String username) {
 
         log.info("calling findUserByName -Checking if this username " + username + " exists");
